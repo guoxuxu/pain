@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GUO XU's site</title>
+    <link href="https://vjs.zencdn.net/7.5.4/video-js.css" rel="stylesheet">
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/material-dashboard.css">
+    <style type="text/css">
+        .nav-tabs .nav-item .nav-link{
+            font-size: 18px;
+            text-transform: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="alert alert-default" role="alert">
+  Here is a documentation of guidelines for general pain diagnosis, therapy and drug prescription, as well as the names of special departments to which will the patient be referred. The guidelines are automatically extracted from free-text clinical notes from electronic health records. Therefore they are not purely clean and are ready to be further improved.
+</div>
+<div class="alert alert-default alert-dismissible fade show" role="alert">
+  We will only display first 10 pairs of key-value in each guideline dictionary here for demo explanations.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  <div class="card card-nav-tabs card-plain">
+    <div class="card-header card-header-primary">
+        <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#diagnosis" data-toggle="tab">Diagnosis guidelines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#therapy" data-toggle="tab">Physiotherapy guidelines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#drug" data-toggle="tab">Drug guidelines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#departments" data-toggle="tab">Special department names</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="tab-content text-center">
+            <div class="tab-pane active" id="diagnosis">
+                <table class="table table-bordered">
+                  
+                </table>
+            </div>
+            <div class="tab-pane" id="therapy">
+                <table class="table table-bordered">
+                  
+                </table>
+            </div>
+            <div class="tab-pane" id="drug">
+                <table class="table table-bordered">
+                  
+                </table>
+            </div>
+            <div class="tab-pane" id="departments">
+                <table class="table table-bordered">
+                  
+                </table>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/core/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var therapy = 'patient advice: 1,neuromuscular electrical stimulation: 2,patient reminder: 3,patient encouragement: 4,pain condition: 5,patient education: 6,lumbar traction: 7,exercise review: 8,tens electrode therapy: 9,patient reinforcement: 10'
+        var drug = 'paractamol: 1,gabapentine: 2,orphenadrine: 3,anarex: 4,amitriptyline: 5,neurobion: 6,carbamazepine: 7,lyrica: 8,celebrex: 9,nortriptyline: 10'
+        var diagnosis = 'left lower limb pain: 1,bilateral shoulder pain: 2,spinal stenosis: 3,myofascial pain: 4,trigeminal neuralgia: 5,chronic low-back pain: 6,knee pain: 7,headache: 8,hip pain: 9,neck sprain: 10'
+        var departments = 'Orthopaedic:1,Rheumatology:2,Neurology:3,Cardiac:4,Physiotherapy:5,Psychology:6,Occupational therapy:7,Podiatry:8'
+        therapy = therapy.split(',')
+        $('#therapy table').append('<thead><tr><th scope="col">key</th><th scope="col">value</th></tr></thead>');
+        for (var i = 0; i < therapy.length; i++) {
+            if (therapy[i]) {
+                var x = therapy[i].split(':')
+                $('#therapy table').append('<tbody><tr><th scope="row">'+x[1]+'</th>'+'<td>'+x[0]+'</td></tr></tbody>')        
+            }
+        }
+        $('#therapy table').append('<thead><tr><th scope="col">...</th><th scope="col">...</th></tr></thead>');
+        drug = drug.split(',')
+        $('#drug table').append('<thead><tr><th scope="col">key</th><th scope="col">value</th></tr></thead>');
+        for (var i = 0; i < drug.length; i++) {
+            if (drug[i]) {
+                var x = drug[i].split(':')
+                $('#drug table').append('<tbody><tr><th scope="row">'+x[1]+'</th>'+'<td>'+x[0]+'</td></tr></tbody>')        
+            }
+        }
+        $('#drug table').append('<thead><tr><th scope="col">...</th><th scope="col">...</th></tr></thead>');
+        diagnosis = diagnosis.split(',')
+        $('#diagnosis table').append('<thead><tr><th scope="col">key</th><th scope="col">value</th></tr></thead>');
+        for (var i = 0; i < diagnosis.length; i++) {
+            if (diagnosis[i]) {
+                var x = diagnosis[i].split(':')
+                $('#diagnosis table').append('<tbody><tr><th scope="row">'+x[1]+'</th>'+'<td>'+x[0]+'</td></tr></tbody>')        
+            }
+        }
+        $('#diagnosis table').append('<thead><tr><th scope="col">...</th><th scope="col">...</th></tr></thead>');
+        departments = departments.split(',')
+        $('#departments table').append('<thead><tr><th scope="col">key</th><th scope="col">value</th></tr></thead>');
+        for (var i = 0; i < departments.length; i++) {
+            if (departments[i]) {
+                var x = departments[i].split(':')
+                $('#departments table').append('<tbody><tr><th scope="row">'+x[1]+'</th>'+'<td>'+x[0]+'</td></tr></tbody>')        
+            }
+        }
+    });
+</script>
+<script type="text/javascript" src="js/core/popper.min.js"></script>
+<script type="text/javascript" src="js/core/bootstrap-material-design.min.js"></script>
+<script type="text/javascript" src="js/material-dashboard.js"></script>
+<script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+<script src='https://vjs.zencdn.net/7.5.4/video.js'></script>
+</body>
+</html>
